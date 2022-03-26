@@ -2,10 +2,17 @@
 
 <a href="{{ route('pets.viewCreate') }}">Cadastrar novo Pet</a>
 
-@if(session('messageDelete'))
+@if(session('messageDelete') || session('updateMessage'))
+    @if(session('messageDelete'))
     <div>
         {{ session('messageDelete') }}
     </div>
+    @endif
+    @if(session('updateMessage'))
+    <div>
+        {{ session('updateMessage') }}
+    </div>
+    @endif
 @endif
 
 @foreach ($pets as $pet)
@@ -16,4 +23,6 @@
     @method("delete")
     <button type = "submit">Excluir</button>
     </form>
+
+    <a href="{{ route('pets.show', $pet->id) }}"><button >Editar</button></a>
 @endforeach
