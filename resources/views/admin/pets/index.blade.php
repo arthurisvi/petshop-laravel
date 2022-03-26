@@ -2,7 +2,7 @@
 
 <a href="{{ route('pets.viewCreate') }}">Cadastrar novo Pet</a>
 
-@if(session()('messageDelete'))
+@if(session('messageDelete'))
     <div>
         {{ session('messageDelete') }}
     </div>
