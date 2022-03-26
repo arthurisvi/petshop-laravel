@@ -11,7 +11,7 @@ class PetController extends Controller
 {
     public function getAll(){
 
-        $pets = Pet::get();
+        $pets = Pet::latest()->paginate();
 
         return $pets;
     }

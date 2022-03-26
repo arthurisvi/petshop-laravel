@@ -26,3 +26,6 @@
 
     <a href="{{ route('pets.show', $pet->id) }}"><button >Editar</button></a>
 @endforeach
+
+<hr>
+{{ $pets->links() }}
