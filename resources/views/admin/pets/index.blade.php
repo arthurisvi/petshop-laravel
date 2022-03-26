@@ -1,6 +1,16 @@
-<h1>Teste</h1>
+<h1>Pets</h1>
 
 <a href="{{ route('pets.viewCreate') }}">Cadastrar novo Pet</a>
+
+<form action="{{ route('pets.search') }}" method="post">
+    @csrf
+    <select name = "type" id = "type">
+        <option selected disabled>Tipo</option>
+        <option value = "Gato">Gato</option>
+        <option value = "Cachorro">Cachorro</option>
+    </select>
+    <button type = "submit">Filtrar</button>
+</form>
 
 @if(session('messageDelete') || session('updateMessage'))
     @if(session('messageDelete'))
@@ -28,4 +38,9 @@
 @endforeach
 
 <hr>
+
+@if (isset($filters))
+{{ $pets->appends($filters)->links() }}
+@else
 {{ $pets->links() }}
+@endif
