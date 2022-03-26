@@ -16,7 +16,7 @@ class CreatePetsTable extends Migration
         Schema::create('pets', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('idade');
+            $table->integer('age');
             $table->string('type');
             $table->string('breed');
             $table->unsignedBigInteger('id_owner')->unsigned();
