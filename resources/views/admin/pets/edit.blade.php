@@ -19,14 +19,12 @@
             @endif
         </select>
         <input type="text" name="breed" id="breed" placeholder = "Raça" value="{{ $pet->breed }}">
-        <select name = "ownerId" name = "ownerId">
+        <select name = "id_owner" id = "id_owner">
             @foreach ($owners as $owner)
-            @foreach ($pet as $pets)
-            @if ($pet->id == $owner->id)
-            <option selected value = {{ $owner->id}}>{{ $owner->name }}</option>
-            @endif()
-            @endforeach
             <option value = {{ $owner->id }}>{{ $owner->name }} - Tel: {{ $owner->tel }}</option>
+            @if ($pet->id_owner == $owner->id)
+            <option selected disabled value = {{ $owner->id}}>{{ $owner->name }} - Tel: {{ $owner->tel }}</option>
+            @endif()
             @endforeach
         </select>
         <button type = "submit">Salvar</button>

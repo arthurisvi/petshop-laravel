@@ -11,7 +11,7 @@ class PetController extends Controller
 {
     public function getAll(){
 
-        $pets = Pet::latest()->paginate(1);
+        $pets = Pet::latest()->paginate();
 
         return $pets;
     }
@@ -25,7 +25,7 @@ class PetController extends Controller
 
     public function findByType(Request $req){
 
-        $pets = Pet::where('type', $req->type)->paginate(1);
+        $pets = Pet::where('type', $req->type)->paginate();
 
         return $pets;
     }
@@ -89,8 +89,10 @@ class PetController extends Controller
 
     public function show($id){
 
+        $owners = Owner::get();
+
         if(!$pet = Pet::find($id)) return response()->json(['message' => 'Pet not found!'], 404);
 
-        return view('admin.pets.edit', compact('pet'));
+        return view('admin.pets.edit', compact('pet', 'owners'));
     }
 }
