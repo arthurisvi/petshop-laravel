@@ -13,6 +13,12 @@ Route::any('/pets/buscar-por-tipo', [PetController::class, 'viewPetsFiltered'])-
 
 Route::get('/pets/editar/{id}', [PetController::class, 'show'])->name('pets.show');
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+require __DIR__.'/auth.php';
