@@ -1,3 +1,9 @@
+@extends ('admin.layouts.app')
+
+@section('title', 'Editar Pet')
+
+@section('content')
+
 <h1>Editar Pet</h1>
 
 @include ('admin.pets._partials.exception')
@@ -32,5 +38,4 @@
     <a href="{{ route('pets.viewPets') }}"><button>Cancelar</button></a>
 </div>
 
-
-
+@endsection

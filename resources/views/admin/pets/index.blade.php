@@ -1,3 +1,9 @@
+@extends ('admin.layouts.app')
+
+@section('title', 'Pets')
+
+@section('content')
+
 <h1>Pets</h1>
 
 <a href="{{ route('pets.viewCreate') }}">Cadastrar novo Pet</a>
@@ -44,3 +50,6 @@
 @else
 {{ $pets->links() }}
 @endif
+
+
+@endsection

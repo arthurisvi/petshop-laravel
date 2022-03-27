@@ -1,3 +1,9 @@
+@extends('admin.layouts.app')
+
+@section('title', 'Novo Pet')
+
+@section('content')
+
 <div>
     <h1>Cadastrar Pet</h1>
     <div>
@@ -29,6 +35,4 @@
     </div>
 </div>
 
-
-
-
+@endsection
