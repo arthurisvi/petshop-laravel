@@ -1,14 +1,6 @@
 <h1>Editar Pet</h1>
 
-@if($errors->any())
-            <div>
-                <ul>
-                    @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-@endif
+@include ('admin.pets._partials.exception')
 
 <div>
     <form action=" {{ route('pets.edit', $pet->id) }}" method="post">
@@ -27,6 +19,16 @@
             @endif
         </select>
         <input type="text" name="breed" id="breed" placeholder = "Raça" value="{{ $pet->breed }}">
+        <select name = "ownerId" name = "ownerId">
+            @foreach ($owners as $owner)
+            @foreach ($pet as $pets)
+            @if ($pet->id == $owner->id)
+            <option selected value = {{ $owner->id}}>{{ $owner->name }}</option>
+            @endif()
+            @endforeach
+            <option value = {{ $owner->id }}>{{ $owner->name }} - Tel: {{ $owner->tel }}</option>
+            @endforeach
+        </select>
         <button type = "submit">Salvar</button>
     </form>
     <a href="{{ route('pets.viewPets') }}"><button>Cancelar</button></a>
