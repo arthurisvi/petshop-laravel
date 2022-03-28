@@ -30,6 +30,17 @@ class PetController extends Controller
         return response()->json($pets);
     }
 
+    public function getPetsPerOwner($id){
+
+        if(!$owner = Owner::find($id)) return response()->json(['message' => 'Owner not found!'], 404);
+
+        $pets = Pet::where('id_owner', $id)->paginate();
+
+        if(!response()->json($pets)->getData()->data) return response()->json(['message' => 'This owner has no registered pets!'], 404);
+
+        return response()->json($pets);
+    }
+
     public function viewPetsFiltered(Request $req){
 
         $filters = $req->type;
