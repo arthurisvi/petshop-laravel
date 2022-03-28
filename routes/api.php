@@ -12,6 +12,8 @@ Route::get('/pets', [PetController::class, 'getAll'])->name('pets.getAll');
 
 Route::get('/pets/{id}', [PetController::class, 'findById'])->name('pets.findById');
 
+Route::post('/pets/filter', [PetController::class, 'findByType'])->name('pets.findByType');
+
 Route::delete('/pets/{id}', [PetController::class, 'delete'])->name("pets.delete");
 
 Route::put('/pets/{id}', [PetController::class, 'edit'])->name("pets.edit");

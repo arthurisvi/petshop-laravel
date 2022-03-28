@@ -45,11 +45,11 @@
 
 <hr>
 
-@if (isset($filters))
+{{-- @if (isset($filters))
 {{ $pets->appends($filters)->links() }}
 @else
 {{ $pets->links() }}
-@endif
+@endif --}}
 
 
 @endsection
