@@ -11,7 +11,7 @@
 
         @include ('admin.pets._partials.exception')
 
-        <form action=" {{ route('pets.create') }}" method="post">
+        <form action=" {{ route('pets.createWeb') }}" method="post">
             @csrf
             <input type="text" name="name" id="name" placeholder = "Nome" value="{{old('name')}}">
             <input type="number" name="age" id="age" placeholder = "Idade" value="{{old('age')}}">

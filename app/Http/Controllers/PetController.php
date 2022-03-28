@@ -65,6 +65,19 @@ class PetController extends Controller
 
     public function create(CreatePet $req){
 
+        $pet = Pet::create([
+            'name' => $req->name,
+            'age' => $req->age,
+            'type' => $req->type,
+            'breed' => $req->breed,
+            'id_owner' => $req->ownerId
+        ]);
+
+        return response()->json($pet);
+    }
+
+    public function createWeb(CreatePet $req){
+
         Pet::create([
             'name' => $req->name,
             'age' => $req->age,
@@ -73,7 +86,7 @@ class PetController extends Controller
             'id_owner' => $req->ownerId
         ]);
 
-        return redirect()->route('pets.viewPets');
+        return $this->viewPets();
     }
 
     public function edit(CreatePet $req, $id){
